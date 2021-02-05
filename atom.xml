@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://GX2403AT.github.io</id>
     <title>GX2403-TWO</title>
-    <updated>2021-02-05T05:10:51.585Z</updated>
+    <updated>2021-02-05T05:32:30.553Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://GX2403AT.github.io"/>
     <link rel="self" href="https://GX2403AT.github.io/atom.xml"/>
@@ -11,12 +11,21 @@
     <icon>https://GX2403AT.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, GX2403-TWO</rights>
     <entry>
+        <title type="html"><![CDATA[留言板]]></title>
+        <id>https://GX2403AT.github.io/post/liu-yan-ban/</id>
+        <link href="https://GX2403AT.github.io/post/liu-yan-ban/">
+        </link>
+        <updated>2021-02-05T05:29:52.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="欢迎大家在这里留下你想说的话">欢迎大家在这里留下你想说的话📃🖊</h1>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>https://GX2403AT.github.io/post/welcome/</id>
         <link href="https://GX2403AT.github.io/post/welcome/">
         </link>
         <updated>2021-02-05T05:08:40.000Z</updated>
-        <content type="html"><![CDATA[<p>欢迎大家</p>
+        <content type="html"><![CDATA[<h1 id="欢迎大家">欢迎大家👏</h1>
 ]]></content>
     </entry>
 </feed>
