@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <title>随机数生成器</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-green mdui-theme-accent-pink">
+    <header class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-theme">
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                    class="mdui-icon material-icons">casino</i></a>
+            <a href="javascript:;" class="mdui-typo-title mdui-ripple">随机数生成器</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a href="https://gx2403at.github.io" class="mdui-btn mdui-btn-icon mdui-ripple"
+                mdui-tooltip="{content: '别点'}"><i class="mdui-icon material-icons">help_outline</i></a>
+        </div>
+    </header>
+
+    <div class="mdui-container">
+        <div class="mdui-row">
+            <div class="mdui-col-xs-4 mdui-col-offset-xs-4">
+                <div id="result" class="mdui-typo-display-4 mdui-text-center">?</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdui-row">
+        <div class="mdui-col-xs-2 mdui-col-offset-xs-5">
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <label class="mdui-textfield-label">最小数</label>
+                <input id="min_num" class="mdui-textfield-input" type="text" pattern="^[0-9]*$" required />
+                <div class="mdui-textfield-error">请输入正整数</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdui-row">
+        <div class="mdui-col-xs-2 mdui-col-offset-xs-5">
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <label class="mdui-textfield-label">最大数</label>
+                <input id="max_num" class="mdui-textfield-input" type="text" pattern="^[0-9]*$" required />
+                <div class="mdui-textfield-error">请输入正整数</div>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="init()"
+        class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-center">生成</button>
+    </div>
+
+    <script>
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function init() {
+            var reg = new RegExp("^[0-9]+$");
+            var min = document.getElementById("min_num").value; //最小值
+            var max = document.getElementById("max_num").value; //最大值
+            if (reg.test(min) && reg.test(max)) {
+                if (min < max)
+                    chooseRndNum(min, max);
+                else mdui.snackbar({
+                    message: '最大值需要大于最小值'
+                });
+            } else mdui.snackbar({
+                message: '请填写最大值和最小值'
+            });
+        }
+
+        function chooseRndNum(min, max) {
+            var cheatList = {
+                28: 60,
+                27: 0,
+                34: 0
+            };
+            var randomList = [];
+            for (var i = min; i <= max; i++) {
+                if (cheatList[i] == undefined) randomList.push(i);
+                else { for (var j = 0; j < cheatList[i]; j++) randomList.push(i) };
+            } //如果cheatList有定义某个数的权重，则按照权重push进数组
+            var random = getRndInteger(0, randomList.length - 1);
+            var ranText = document.getElementById("result");
+            ranText.innerText = randomList[random];
+        }
+    </script>
+</body>
+
+</html>
